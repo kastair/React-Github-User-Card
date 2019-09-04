@@ -6,16 +6,20 @@ class UserCard extends React.Component {
         super(props);
         this.state = {
         }
-        console.log(this.props);
     }
 
     render() {
         return(
             <div className="user-card">
-                <img width="150px" src={this.props.data.avatar_url} />
-                <p>Username: {this.props.data.login}</p>
-                <p>Name: {this.props.data.name}</p>
-                <p>Followers: {this.props.data.followers}</p>
+                <img width="150px" src={this.props.user.avatar_url} alt="user" />
+                <p>Username: {this.props.user.login}</p>
+                <p>Name: {this.props.user.name}</p>
+                <p>Followers: {this.props.user.followers}</p>
+                <div>
+                    {this.props.followers.map(follower => (
+                        <div key={follower.id}>{follower.login}</div>
+                    ))}
+                </div>
             </div>
         )
     }
