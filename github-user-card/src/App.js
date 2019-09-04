@@ -37,6 +37,7 @@ class App extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.state.userName !== prevState.userName) {
         this.getUser();
+        this.getFollowers();
     }
   }
 
@@ -49,15 +50,15 @@ class App extends React.Component {
       })
   };
 
-  // getFollowers = () => {
-  //   axios
-  //     .get(`https://api.github.com/users/${this.state.userName}/followers`)
-  //     .then(res => this.setState({ followers: res }))
-  //     .then(err => {
-  //       this.setState({ err: `API is currently not working, please try again later. ${err}` })
-  //     })
-  //     console.log(this.state.followers);
-  // }
+  getFollowers = () => {
+    axios
+      .get(`https://api.github.com/users/${this.state.userName}/followers`)
+      .then(res => this.setState({ followers: res.data }))
+      .then(err => {
+        this.setState({ err: `API is currently not working, please try again later. ${err}` })
+      })
+      console.log(this.state.followers);
+  }
   
   render() {
     return (
