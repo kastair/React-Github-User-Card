@@ -15,11 +15,11 @@ class UserCard extends React.Component {
                 <p>Username: {this.props.user.login}</p>
                 <p>Name: {this.props.user.name}</p>
                 <p>Followers: {this.props.user.followers}</p>
-                <div>
+                {/* <div>
                     {this.props.followers.map(follower => (
                         <div key={follower.id}>{follower.login}</div>
                     ))}
-                </div>
+                </div> */}
             </div>
         )
     }
